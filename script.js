@@ -178,6 +178,11 @@ canvas.addEventListener('click', (ev)=>{
     ball.move(); 
     startGame=false;
 });
+canvas.addEventListener('touchmove', (ev)=>{
+    player.movePlayerWithMouse(ev.clientX - canvas.offsetLeft -2.5*size);
+    ballMovement();
+});
+
 
 function Game(time, ballSpeed){
      loop = setInterval(()=>{
