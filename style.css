@@ -10,3 +10,7 @@ canvas{
     height: 400px;
     background-color: #000000;
 }
+
+.sortable-handler {
+    touch-action: none;
+  }
