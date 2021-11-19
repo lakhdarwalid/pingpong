@@ -178,7 +178,7 @@ canvas.addEventListener('click', (ev)=>{
     ball.move(); 
     startGame=false;
 });
-canvas.addEventListener('touchmove', (ev)=>{
+document.body.addEventListener('touchmove', (ev)=>{
     player.movePlayerWithMouse(ev.clientX - canvas.offsetLeft -2.5*size);
     ballMovement();
 });
