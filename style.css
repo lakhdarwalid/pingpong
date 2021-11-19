@@ -1,0 +1,12 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-content: center;
+}
+
+canvas{
+    width: 400px;
+    height: 400px;
+    background-color: #000000;
+}
