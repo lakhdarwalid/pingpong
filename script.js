@@ -2,8 +2,8 @@ let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 canvas.width = 400;
 canvas.height = 400;
-let lbl = document.querySelector('label');
-
+let btn_right = document.getElementById('btn-right');
+let btn_left = document.getElementById('btn-left');
 let size = 20;
 let rows = canvas.height/size;
 let cols = canvas.width/size;
@@ -178,15 +178,7 @@ canvas.addEventListener('click', (ev)=>{
     ball.move(); 
     startGame=false;
 });
-document.addEventListener('wheel', function(e) {
-    e.preventDefault();
-    doStuff(e);
-}, { passive: false });
 
-document.addEventListener('touchmove', function (ev){
-    player.movePlayerWithMouse(ev.clientX - canvas.offsetLeft -2.5*size);
-    ballMovement();
-});
 
 
 function Game(time, ballSpeed){
@@ -350,6 +342,30 @@ function removeBrick(brick){
 }
 
 
+btn_right.addEventListener('click', moveRight );
 
+
+function moveRight(){
+    if (!gameOver)  {
+        if (player.bricks[player.bricks.length-1].x + size<canvas.width)  
+            {playerDirectionX = 1;
+            playerDirectionY = 0;}
+            else playerDirectionX=0;
+        player.movePlayer();
+        ballMovement();
+    }
+}
+
+btn_left.addEventListener('click', moveLeft);
+function moveLeft(){
+    if (!gameOver)  {    
+            if (player.bricks[0].x>0)
+            {playerDirectionX = -1;
+            playerDirectionY = 0;}
+            else playerDirectionX = 0;
+        player.movePlayer();
+        ballMovement();
+    }
+}
 
 
